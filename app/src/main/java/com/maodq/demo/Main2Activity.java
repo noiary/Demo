@@ -5,9 +5,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.transition.Explode;
 import android.transition.Fade;
 import android.transition.Slide;
+import android.view.MotionEvent;
+import android.view.View;
 import android.view.Window;
 
 public class Main2Activity extends AppCompatActivity {
+
+    private View btnShared;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +52,23 @@ public class Main2Activity extends AppCompatActivity {
 
         // 所有操作在设置内容视图之前
         setContentView(R.layout.activity_main2);
+        demo();
+    }
 
+    private void demo() {
+        btnShared = findViewById(R.id.btn_share);
+        btnShared.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    System.out.println("event.getX() = " + event.getX());
+                    System.out.println("event.getRawX() = " + event.getRawX());
+//                    System.out.println("event.getX()+btnShared.getX() = " + event.getX() + btnShared.getX());
+//                    System.out.println("btnShared.getX() = " + btnShared.getX());
+                    System.out.println("event.getRawX() - btnShared.getX() = " + (event.getRawX() - btnShared.getX()));
+                }
+                return true;
+            }
+        });
     }
 }

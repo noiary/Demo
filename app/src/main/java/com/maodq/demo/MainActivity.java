@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
     public void share(View view) {
 
         //共享元素
-        Button button = (Button) findViewById(R.id.share);
+        Button button = (Button) findViewById(R.id.btn_share);
         intent.putExtra("transition", "share");
 
         //将原先的跳转改成如下方式，注意这里面的第三个参数决定了ActivityTwo 布局中的android:transitionName的值，它们要保持一致

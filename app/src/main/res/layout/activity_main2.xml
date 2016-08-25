@@ -10,9 +10,11 @@
                 tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/share"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/btn_share"
+        android:layout_width="200dp"
+        android:layout_height="80dp"
+        android:text="test"
+        android:textSize="28sp"
         android:layout_centerInParent="true"
         android:layout_gravity="center_horizontal"
         android:background="#fff"

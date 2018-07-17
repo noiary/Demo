@@ -10,22 +10,20 @@
         android:largeHeap="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.MainActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".activity.BehaviorActivity">
+        <activity android:name=".others.BehaviorActivity">
         </activity>
-        <activity android:name=".AppbarLayoutDemo">
+        <activity android:name=".others.AppbarLayoutDemo">
         </activity>
-        <activity android:name=".activity.FragmentDemoActivity">
+        <activity android:name=".others.HandlerDemoActivity">
         </activity>
-        <activity android:name=".activity.HandlerDemoActivity">
-        </activity>
-        <activity android:name=".activity.EventDispatchActivity">
+        <activity android:name=".others.EventDispatchActivity">
         </activity>
     </application>
 

@@ -15,7 +15,7 @@
         android:gravity="center_vertical"
         android:orientation="vertical"
         app:layout_behavior=".MyBehavior"
-        tools:context="com.maodq.demo.activity.MainActivity">
+        tools:context="com.maodq.demo.MainActivity">
 
         <Button
             android:id="@+id/btn_behavior"
@@ -35,11 +35,11 @@
             android:layout_height="@dimen/btn_height"
             android:text="@string/bottom_sheet_dialog"/>
 
-        <Button
-            android:id="@+id/btn_fragment"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/btn_height"
-            android:text="fragment"/>
+        <!--<Button-->
+            <!--android:id="@+id/btn_fragment"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="@dimen/btn_height"-->
+            <!--android:text="fragment"/>-->
 
         <Button
             android:id="@+id/btn_handler_demo"

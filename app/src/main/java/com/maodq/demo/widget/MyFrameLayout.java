@@ -7,7 +7,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.FrameLayout;
 
-import com.maodq.demo.Util;
+import com.maodq.demo.util.Util;
 
 /**
  * for Android event delivery

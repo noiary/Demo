@@ -5,7 +5,7 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 
-import com.maodq.demo.Util;
+import com.maodq.demo.util.Util;
 
 /**
  * for Android event delivery

@@ -1,3 +1,13 @@
 <resources>
-    <string name="app_name">Demo</string>
+    <string name="app_name">Android</string>
+    <string name="behavior">behavior</string>
+
+    <!-- behavior -->
+    <string name="cover_header_behavior" translatable="false">com.maodq.demo.widget.behavior.CoverHeaderBehavior</string>
+    <string name="cover_header_behavior2" translatable="false">com.maodq.demo.widget.behavior.CoverHeaderBehavior2</string>
+    <string name="appbar_layout">AppbarLayout</string>
+    <string name="bottom_sheet_dialog">BottomSheetDialog</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

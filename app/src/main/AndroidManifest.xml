@@ -4,18 +4,28 @@
 
     <application
         android:allowBackup="true"
+        android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".Main2Activity">
+        <activity android:name=".activity.BehaviorActivity">
+        </activity>
+        <activity android:name=".AppbarLayoutDemo">
+        </activity>
+        <activity android:name=".activity.FragmentDemoActivity">
+        </activity>
+        <activity android:name=".activity.HandlerDemoActivity">
+        </activity>
+        <activity android:name=".activity.EventDispatchActivity">
         </activity>
     </application>
 

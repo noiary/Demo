@@ -1,45 +1,58 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:background="#ff0000"
-              android:gravity="center"
-              android:orientation="vertical"
-              tools:context=".MainActivity">
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#313335">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:onClick="explode"
-        android:text="explode" />
+    <LinearLayout
+        android:id="@+id/activity_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        app:layout_behavior=".MyBehavior"
+        tools:context="com.maodq.demo.activity.MainActivity">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:onClick="slide"
-        android:text="slide" />
+        <Button
+            android:id="@+id/btn_behavior"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/btn_height"
+            android:text="@string/behavior"/>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:onClick="fade"
-        android:text="fade" />
+        <Button
+            android:id="@+id/btn_appbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/btn_height"
+            android:text="@string/appbar_layout"/>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:onClick="share"
-        android:text="share" />
+        <Button
+            android:id="@+id/btn_bottom_sheet_dialog"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/btn_height"
+            android:text="@string/bottom_sheet_dialog"/>
+
+        <Button
+            android:id="@+id/btn_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/btn_height"
+            android:text="fragment"/>
+
+        <Button
+            android:id="@+id/btn_handler_demo"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/btn_height"
+            android:text="handlerdemo"/>
+
+        <Button
+            android:id="@+id/btn_event"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/btn_height"
+            android:text="event"/>
 
 
-    <Button
-        android:id="@+id/btn_share"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_gravity="center_horizontal"
-        android:background="#fff" />
-</LinearLayout>
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>

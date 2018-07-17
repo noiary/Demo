@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import com.maodq.demo.R;
 
+import java.util.Locale;
+
 public class AppbarLayoutDemo extends AppCompatActivity {
 
     @Override
@@ -23,7 +25,7 @@ public class AppbarLayoutDemo extends AppCompatActivity {
         LinearLayout ll = (LinearLayout) findViewById(R.id.linear);
         for (int i = 0; i < 100; i++) {
             TextView tv = new TextView(this);
-            tv.setText("ybk --" + i);
+            tv.setText(String.format(Locale.CHINA, "demo -- %d", i));
             tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 22);
             ll.addView(tv);
         }

@@ -20,8 +20,10 @@ class OkHttpDemoActivity : BActivity() {
         val okHttpClient = OkHttpClient()
         // 创建Request，默认get请求，设置url
         val request = Request.Builder().url("http://www.jd.com").build()
-        // 创建call对象，此时并没有进行网络连接
+        // 创建call对象，把okHttpClient自己装进call对象中,此时并没有进行网络连接
         val call = okHttpClient.newCall(request)
+        // 异步联网，通过OkHttpClient中的成员dispatcher中的线程池来启动工作线程，然后进行联网操作，
+        // TODO 联网的具体细节待分析
         call.enqueue(object : Callback {
             override fun onFailure(call: Call?, e: IOException?) {
                 e?.printStackTrace()

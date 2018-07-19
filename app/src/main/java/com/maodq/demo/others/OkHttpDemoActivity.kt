@@ -16,15 +16,21 @@ class OkHttpDemoActivity : BActivity() {
     }
 
     private fun demo() {
+        // 创建OkHttpClient对象，内部默认创建一系列成员变量对象
         val okHttpClient = OkHttpClient()
-        val request = Request.Builder().url("http://www.baidu.com").build()
+        // 创建Request，默认get请求，设置url
+        val request = Request.Builder().url("http://www.jd.com").build()
+        // 创建call对象，此时并没有进行网络连接
         val call = okHttpClient.newCall(request)
         call.enqueue(object : Callback {
             override fun onFailure(call: Call?, e: IOException?) {
-
+                e?.printStackTrace()
             }
 
             override fun onResponse(call: Call?, response: Response?) {
+                if (response != null && response.isSuccessful) {
+                    response.body().toString()
+                }
             }
         })
     }

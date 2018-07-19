@@ -12,7 +12,8 @@ class MainActivity2 : AppCompatActivity() {
             MainPresenter.Item("AppbarLayout", AppbarLayoutDemo::class),
             MainPresenter.Item("BottomSheetDialog", null),
             MainPresenter.Item("HandlerDemo", HandlerDemoActivity::class),
-            MainPresenter.Item("Event", EventDispatchActivity::class)
+            MainPresenter.Item("Event", EventDispatchActivity::class),
+            MainPresenter.Item("OkHttpDemo", OkHttpDemoActivity::class)
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {

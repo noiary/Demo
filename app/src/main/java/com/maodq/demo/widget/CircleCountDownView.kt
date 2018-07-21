@@ -34,7 +34,7 @@ class CircleCountDownView : View {
         private var currentAngel: Float = 0f
     }
 
-    private var borderWidth: Float = 4f
+    private var borderWidth: Float = 16f
 
     // 实心圆画笔
     private val fillPaint: Paint = Paint()
@@ -42,6 +42,7 @@ class CircleCountDownView : View {
     private val strokePaint: Paint = Paint()
 
     private lateinit var mHandler: Handler
+    private var isDrawing: Boolean = false
 
 
     constructor(context: Context?) : this(context, null)
@@ -78,13 +79,23 @@ class CircleCountDownView : View {
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
-        val cx = (measuredWidth - borderWidth) / 2
+        val cx = measuredWidth / 2f
         // 画实心圆
-        canvas?.drawCircle(cx, (measuredHeight - borderWidth) / 2, cx, fillPaint)
-        canvas?.drawArc(borderWidth / 2, borderWidth / 2, measuredWidth - borderWidth, measuredHeight - borderWidth, 0f, currentAngel, false, strokePaint)
+        fillPaint.color = 0xaa3c3f41.toInt()
+        canvas?.drawRect(0f, 0f, measuredWidth.toFloat(), measuredHeight.toFloat(), fillPaint)
+        fillPaint.color = 0xff2b2b2b.toInt()
+        canvas?.drawCircle(cx, measuredHeight / 2f, cx, fillPaint)
+        val halfBorderWidth = borderWidth / 2
+        canvas?.drawArc(halfBorderWidth, halfBorderWidth, measuredWidth - halfBorderWidth, measuredHeight - halfBorderWidth, 0f, currentAngel, false, strokePaint)
     }
 
     fun start() {
+        if (isDrawing) {
+            Log.i(TAG, "try start repeatedly during drawing")
+            return
+        }
+
+        isDrawing = true
         currentAngel = 0F
         mHandler.sendEmptyMessage(0)
     }
@@ -104,7 +115,10 @@ class CircleCountDownView : View {
 
     private fun update(): Boolean {
         Log.d(TAG, "update: currentAngel is $currentAngel")
-        if (currentAngel >= 360) return false
+        if (currentAngel >= 360) {
+            isDrawing = false
+            return false
+        }
         currentAngel += 1
         post { invalidate() }
         return true

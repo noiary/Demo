@@ -1,4 +1,4 @@
-package com.maodq.demo.others;
+package com.maodq.demo.internal;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

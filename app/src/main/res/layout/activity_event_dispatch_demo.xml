@@ -7,7 +7,7 @@
     android:layout_height="300dp"
     android:layout_gravity="center"
     android:background="@color/colorPrimary"
-    tools:context=".others.EventDispatchActivity">
+    tools:context=".internal.EventDispatchActivity">
 
 
     <com.maodq.demo.widget.MyTextView

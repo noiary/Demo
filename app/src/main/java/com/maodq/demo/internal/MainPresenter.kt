@@ -1,4 +1,4 @@
-package com.maodq.demo.others
+package com.maodq.demo.internal
 
 import android.content.Intent
 import android.support.v7.widget.LinearLayoutManager
@@ -6,8 +6,8 @@ import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import com.maodq.demo.base.BActivity
 import com.maodq.demo.base.BPresenter
-import kotlin.reflect.KClass
 
 class MainPresenter : BPresenter() {
     fun initView(rvList: RecyclerView, items: MutableList<Item>) {
@@ -16,8 +16,6 @@ class MainPresenter : BPresenter() {
         rvList.layoutManager = linearLayoutManager
         rvList.adapter = MyAdapter(items)
     }
-
-    class Item(val name: String, val clazz: KClass<*>?)
 
     class MyAdapter(private val items: MutableList<Item>) :
             RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -30,6 +28,7 @@ class MainPresenter : BPresenter() {
             holder.itemView.setOnClickListener {
                 val item = items[holder.adapterPosition]
                 val intent = Intent(parent.context, item.clazz?.java)
+                intent.putExtra(BActivity.EXTRA_DATA, item.name)
                 parent.context.startActivity(intent)
             }
             return holder

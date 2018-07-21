@@ -2,18 +2,19 @@ package com.maodq.demo
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import com.maodq.demo.others.*
+import com.maodq.demo.internal.*
 
 class MainActivity2 : AppCompatActivity() {
 
     // 入口list
     private val items = mutableListOf(
-            MainPresenter.Item("Behavior", BehaviorActivity::class),
-            MainPresenter.Item("AppbarLayout", AppbarLayoutDemo::class),
-            MainPresenter.Item("BottomSheetDialog", null),
-            MainPresenter.Item("HandlerDemo", HandlerDemoActivity::class),
-            MainPresenter.Item("Event", EventDispatchActivity::class),
-            MainPresenter.Item("OkHttpDemo", OkHttpDemoActivity::class)
+            Item("Behavior", BehaviorActivity::class),
+            Item("AppbarLayout", AppbarLayoutDemo::class),
+            Item("BottomSheetDialog", null),
+            Item("HandlerDemo", HandlerDemoActivity::class),
+            Item("Event", EventDispatchActivity::class),
+            Item("OkHttpDemo", OkHttpDemoActivity::class),
+            Item("CircleCountDownView", CircleCountDownActivity::class)
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {

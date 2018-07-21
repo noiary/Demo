@@ -14,10 +14,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.maodq.demo.others.AppbarLayoutDemo;
-import com.maodq.demo.others.BehaviorActivity;
-import com.maodq.demo.others.EventDispatchActivity;
-import com.maodq.demo.others.HandlerDemoActivity;
+import com.maodq.demo.internal.AppbarLayoutDemo;
+import com.maodq.demo.internal.BehaviorActivity;
+import com.maodq.demo.internal.EventDispatchActivity;
+import com.maodq.demo.internal.HandlerDemoActivity;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -4,7 +4,10 @@ import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
-import android.os.*
+import android.os.Build
+import android.os.Handler
+import android.os.Looper
+import android.os.Message
 import android.support.annotation.ColorInt
 import android.support.annotation.RequiresApi
 import android.util.AttributeSet
@@ -27,8 +30,8 @@ class CircleCountDownView : View {
         private val borderColor: Int = Color.RED
         // 动画时长(毫秒)
         private const val DURATION: Long = 3000
-        // 间隔时长
-        const val INTERVAL: Long = DURATION / 360
+        // 间隔时长(毫秒)
+        private const val INTERVAL: Long = 20
 
         // 当前动画角度
         private var currentAngel: Float = 0f
@@ -54,9 +57,9 @@ class CircleCountDownView : View {
     }
 
     private fun init(context: Context?) {
-        val thread = HandlerThread("CircleCountDownHandlerThread")
-        thread.start()
-        mHandler = CircleCountDownHandler(thread.looper, this@CircleCountDownView)
+//        val thread = HandlerThread("CircleCountDownHandlerThread")
+//        thread.start()
+        mHandler = CircleCountDownHandler(Looper.getMainLooper(), this@CircleCountDownView)
 
         val density = context?.resources?.displayMetrics?.density
         borderWidth *= density!!
@@ -126,7 +129,7 @@ class CircleCountDownView : View {
 
             return false
         }
-        currentAngel += 1
+        currentAngel += 360 / (DURATION / INTERVAL)
         post { invalidate() }
         return true
     }

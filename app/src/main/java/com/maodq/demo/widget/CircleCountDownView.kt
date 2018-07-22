@@ -44,6 +44,8 @@ class CircleCountDownView : View {
     private lateinit var mHandler: Handler
     private var isDrawing: Boolean = false
 
+    private var startTime: Long = 0L
+
 
     constructor(context: Context?) : this(context, null)
     constructor(context: Context?, attrs: AttributeSet?) : this(context, attrs, 0)
@@ -94,7 +96,7 @@ class CircleCountDownView : View {
             Log.i(TAG, "try start repeatedly during drawing")
             return
         }
-
+        startTime = System.currentTimeMillis()
         isDrawing = true
         currentAngel = 0F
         mHandler.sendEmptyMessage(0)
@@ -117,6 +119,11 @@ class CircleCountDownView : View {
         Log.d(TAG, "update: currentAngel is $currentAngel")
         if (currentAngel >= 360) {
             isDrawing = false
+
+            val endTime = System.currentTimeMillis()
+            val duration = endTime - startTime
+            Log.i(TAG, "duration = $duration")
+
             return false
         }
         currentAngel += 1

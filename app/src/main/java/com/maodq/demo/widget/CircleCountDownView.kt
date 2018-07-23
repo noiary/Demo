@@ -1,19 +1,17 @@
 package com.maodq.demo.widget
 
+import android.animation.ValueAnimator
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.os.Build
-import android.os.Handler
-import android.os.Looper
-import android.os.Message
 import android.support.annotation.ColorInt
+import android.support.annotation.FloatRange
 import android.support.annotation.RequiresApi
 import android.util.AttributeSet
 import android.util.Log
 import android.view.View
-import java.lang.ref.WeakReference
 
 /**
  * 圆形倒计时控件,用于Splash页面
@@ -37,18 +35,13 @@ class CircleCountDownView : View {
         private var currentAngel: Float = 0f
     }
 
+    private var valueAnimator: ValueAnimator? = null
     private var borderWidth: Float = 16f
-
     // 实心圆画笔
     private val fillPaint: Paint = Paint()
     // 空心圆画笔
     private val strokePaint: Paint = Paint()
-
-    private lateinit var mHandler: Handler
-    private var isDrawing: Boolean = false
-
     private var startTime: Long = 0L
-
 
     constructor(context: Context?) : this(context, null)
     constructor(context: Context?, attrs: AttributeSet?) : this(context, attrs, 0)
@@ -57,10 +50,6 @@ class CircleCountDownView : View {
     }
 
     private fun init(context: Context?) {
-//        val thread = HandlerThread("CircleCountDownHandlerThread")
-//        thread.start()
-        mHandler = CircleCountDownHandler(Looper.getMainLooper(), this@CircleCountDownView)
-
         val density = context?.resources?.displayMetrics?.density
         borderWidth *= density!!
         fillPaint.isAntiAlias = true
@@ -72,13 +61,16 @@ class CircleCountDownView : View {
         strokePaint.style = Paint.Style.STROKE
         strokePaint.strokeCap = Paint.Cap.ROUND // 设置stroke形状为圆头
 //        strokePaint!!.strokeJoin = Paint.Join.MITER  // 拐角形状 有MITER，BEVEL和ROUND
+
+        initAnimator()
     }
 
-    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-//        val tWidthMeasureSpec = MeasureSpec.makeMeasureSpec(mWidth, MeasureSpec.EXACTLY)
-//        val tHeightMeasureSpec = MeasureSpec.makeMeasureSpec(mHeight, MeasureSpec.EXACTLY)
-//        setMeasuredDimension(tWidthMeasureSpec, tHeightMeasureSpec)
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec)
+    private fun initAnimator() {
+        valueAnimator = ValueAnimator.ofFloat(0f, 100f)
+        valueAnimator!!.duration = DURATION
+        valueAnimator!!.addUpdateListener {
+            update(it.animatedValue as Float)
+        }
     }
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
@@ -95,42 +87,26 @@ class CircleCountDownView : View {
     }
 
     fun start() {
-        if (isDrawing) {
+        if (valueAnimator!!.isRunning) {
             Log.i(TAG, "try start repeatedly during drawing")
             return
         }
         startTime = System.currentTimeMillis()
-        isDrawing = true
         currentAngel = 0F
-        mHandler.sendEmptyMessage(0)
+        valueAnimator!!.start()
     }
 
-
-    class CircleCountDownHandler(looper: Looper?, view: CircleCountDownView) : Handler(looper) {
-        private var viewRef: WeakReference<CircleCountDownView> = WeakReference(view)
-
-        override fun handleMessage(msg: Message?) {
-            val update = viewRef.get()?.update()
-            if (update!!) {
-                sendEmptyMessageDelayed(0, INTERVAL)
-            }
-
-        }
-    }
-
-    private fun update(): Boolean {
+    private fun update(@FloatRange(from = 0.0, to = 100.0) progress: Float): Boolean {
         Log.d(TAG, "update: currentAngel is $currentAngel")
-        if (currentAngel >= 360) {
-            isDrawing = false
-
+        if (currentAngel >= 359) {
+//            valueAnimator.cancel()
             val endTime = System.currentTimeMillis()
             val duration = endTime - startTime
             Log.i(TAG, "duration = $duration")
-
             return false
         }
-        currentAngel += 360 / (DURATION / INTERVAL)
-        post { invalidate() }
+        currentAngel = progress * 3.6f
+        invalidate()
         return true
     }
 }

@@ -28,15 +28,13 @@ class CircleCountDownView : View {
         private val borderColor: Int = Color.RED
         // 动画时长(毫秒)
         private const val DURATION: Long = 3000
-        // 间隔时长(毫秒)
-        private const val INTERVAL: Long = 20
-
-        // 当前动画角度
-        private var currentAngel: Float = 0f
     }
 
+    // 当前动画角度
+    private var currentAngel: Float = 0f
+    private var borderWidth: Float = 2f
     private var valueAnimator: ValueAnimator? = null
-    private var borderWidth: Float = 16f
+
     // 实心圆画笔
     private val fillPaint: Paint = Paint()
     // 空心圆画笔

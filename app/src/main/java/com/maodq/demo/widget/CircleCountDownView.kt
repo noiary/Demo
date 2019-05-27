@@ -6,9 +6,9 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.os.Build
-import android.support.annotation.ColorInt
-import android.support.annotation.FloatRange
-import android.support.annotation.RequiresApi
+import androidx.annotation.ColorInt
+import androidx.annotation.FloatRange
+import androidx.annotation.RequiresApi
 import android.util.AttributeSet
 import android.util.Log
 import android.view.View

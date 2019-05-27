@@ -1,7 +1,7 @@
 package com.maodq.demo
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.maodq.demo.internal.*
 
 class MainActivity2 : AppCompatActivity() {

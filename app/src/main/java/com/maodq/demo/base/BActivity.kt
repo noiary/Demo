@@ -2,7 +2,7 @@ package com.maodq.demo.base
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 
 @SuppressLint("Registered")
 open class BActivity : AppCompatActivity() {

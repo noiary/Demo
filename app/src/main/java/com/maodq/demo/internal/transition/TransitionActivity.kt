@@ -5,6 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.maodq.demo.R
 import com.maodq.demo.internal.ItemF
 import com.maodq.demo.internal.transition.fragments.AutoTransitionFragment
+import com.maodq.demo.internal.transition.fragments.ChangeBoundsFragment
+import com.maodq.demo.internal.transition.fragments.PathMotion
+import com.maodq.demo.internal.transition.fragments.SlideFragment
 
 class TransitionActivity : AppCompatActivity() {
 
@@ -33,7 +36,10 @@ class TransitionActivity : AppCompatActivity() {
 
     // 入口list
     private val items = mutableListOf(
-            ItemF("Auto Transition", AutoTransitionFragment())
+            ItemF("Auto Transition", AutoTransitionFragment()),
+            ItemF("Change Bounds", ChangeBoundsFragment()),
+            ItemF("Path Motion", PathMotion()),
+            ItemF("Path Motion", SlideFragment())
     )
 
     private inner class MyListProvider : SampleListProvider {
@@ -45,7 +51,7 @@ class TransitionActivity : AppCompatActivity() {
         }
 
         override fun getTitleForPosition(index: Int): String {
-            return items[0].name
+            return items[index].name
         }
 
     }

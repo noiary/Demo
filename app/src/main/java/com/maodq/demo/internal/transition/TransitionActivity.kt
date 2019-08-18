@@ -4,10 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.maodq.demo.R
 import com.maodq.demo.internal.ItemF
-import com.maodq.demo.internal.transition.fragments.AutoTransitionFragment
-import com.maodq.demo.internal.transition.fragments.ChangeBoundsFragment
-import com.maodq.demo.internal.transition.fragments.PathMotion
-import com.maodq.demo.internal.transition.fragments.SlideFragment
+import com.maodq.demo.internal.transition.fragments.*
 
 class TransitionActivity : AppCompatActivity() {
 
@@ -39,7 +36,8 @@ class TransitionActivity : AppCompatActivity() {
             ItemF("Auto Transition", AutoTransitionFragment()),
             ItemF("Change Bounds", ChangeBoundsFragment()),
             ItemF("Path Motion", PathMotion()),
-            ItemF("Path Motion", SlideFragment())
+            ItemF("Path Motion", SlideFragment()),
+            ItemF("Scale and Fade", ScaleAndFadeFragment())
     )
 
     private inner class MyListProvider : SampleListProvider {

@@ -27,10 +27,9 @@ class PathMotion : Fragment() {
             val transition = ChangeBounds()
             transition.duration = 500
             transition.setPathMotion(ArcMotion())
-            TransitionManager.beginDelayedTransition(fl_container,transition)
+            TransitionManager.beginDelayedTransition(fl_container, transition)
             lp.gravity = if (mToRightAnimation) Gravity.BOTTOM or Gravity.END else Gravity.TOP or Gravity.START
             btn_change_bounds.layoutParams = lp
         }
-
     }
 }

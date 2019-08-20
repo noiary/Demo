@@ -1,18 +1,18 @@
 package com.maodq.demo.internal
 
 import android.content.Intent
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.maodq.demo.base.BActivity
 import com.maodq.demo.base.BPresenter
 
 class MainPresenter : BPresenter() {
     fun initView(rvList: RecyclerView, items: MutableList<Item>) {
         val linearLayoutManager =
-                LinearLayoutManager(rvList.context, LinearLayoutManager.VERTICAL, false)
+                LinearLayoutManager(rvList.context, RecyclerView.VERTICAL, false)
         rvList.layoutManager = linearLayoutManager
         rvList.adapter = MyAdapter(items)
     }

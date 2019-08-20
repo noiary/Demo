@@ -1,8 +1,9 @@
 package com.maodq.demo
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.maodq.demo.internal.*
+import com.maodq.demo.internal.transition.TransitionActivity
 
 class MainActivity2 : AppCompatActivity() {
 
@@ -10,11 +11,12 @@ class MainActivity2 : AppCompatActivity() {
     private val items = mutableListOf(
             Item("Behavior", BehaviorActivity::class),
             Item("AppbarLayout", AppbarLayoutDemo::class),
-            Item("BottomSheetDialog", null),
+//            Item("BottomSheetDialog", null),
             Item("HandlerDemo", HandlerDemoActivity::class),
             Item("Event", EventDispatchActivity::class),
             Item("OkHttpDemo", OkHttpDemoActivity::class),
-            Item("CircleCountDownView", CircleCountDownActivity::class)
+            Item("CircleCountDownView", CircleCountDownActivity::class),
+            Item("Transition", TransitionActivity::class)
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {

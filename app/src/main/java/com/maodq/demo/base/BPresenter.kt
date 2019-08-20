@@ -1,3 +1,3 @@
 package com.maodq.demo.base
 
- open class BPresenter
+open class BPresenter

@@ -23,8 +23,7 @@ class TransitionActivity : AppCompatActivity() {
         val fragment = items[index].fragment
         supportFragmentManager
                 .beginTransaction()
-                .setCustomAnimations(R.anim.fade_in, R.anim.fade_out,
-                        R.anim.fade_in, R.anim.fade_out)
+                .setCustomAnimations(R.anim.fade_in, R.anim.fade_out, R.anim.fade_in, R.anim.fade_out)
                 .replace(R.id.fl_container, fragment)
                 .addToBackStack(index.toString())
                 .commit()

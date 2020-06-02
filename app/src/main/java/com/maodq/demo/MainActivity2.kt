@@ -1,6 +1,7 @@
 package com.maodq.demo
 
 import android.os.Bundle
+import android.webkit.WebView
 import androidx.appcompat.app.AppCompatActivity
 import com.maodq.demo.internal.*
 import com.maodq.demo.internal.transition.TransitionActivity
@@ -16,7 +17,8 @@ class MainActivity2 : AppCompatActivity() {
             Item("Event", EventDispatchActivity::class),
             Item("OkHttpDemo", OkHttpDemoActivity::class),
             Item("CircleCountDownView", CircleCountDownActivity::class),
-            Item("Transition", TransitionActivity::class)
+            Item("Transition", TransitionActivity::class),
+            Item("WebView", WebViewActivity::class)
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -1,6 +1,7 @@
 package com.maodq.demo.internal.transition
 
 import android.os.Bundle
+import android.transition.Fade
 import androidx.appcompat.app.AppCompatActivity
 import com.maodq.demo.R
 import com.maodq.demo.internal.ItemF
@@ -12,6 +13,7 @@ class TransitionActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_transition)
         val fragment = TransitionListFragment()
+//        setFragmentTransition(fragment)
         fragment.listProvider = MyListProvider()
         supportFragmentManager
                 .beginTransaction()
@@ -19,8 +21,17 @@ class TransitionActivity : AppCompatActivity() {
                 .commit()
     }
 
+    private fun setFragmentTransition(fragment: TransitionListFragment) {
+        val transition = Fade().setDuration(200)
+        fragment.exitTransition = transition
+        fragment.enterTransition = transition
+        fragment.returnTransition = transition
+        fragment.reenterTransition = transition
+    }
+
     private fun onItemClick(index: Int) {
         val fragment = items[index].fragment
+
         supportFragmentManager
                 .beginTransaction()
                 .setCustomAnimations(R.anim.fade_in, R.anim.fade_out, R.anim.fade_in, R.anim.fade_out)

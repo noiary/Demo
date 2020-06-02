@@ -12,4 +12,8 @@ open class BActivity : AppCompatActivity() {
         val data = intent.getStringExtra("data")
         actionBar?.title = data
     }
+
+    companion object {
+        const val EXTRA_DATA = "EXTRA_DATA"
+    }
 }
